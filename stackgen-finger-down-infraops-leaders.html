@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>InfraOps leaders, put a finger down if… | StackGen</title>
+<meta name="description" content="Five fingers up, four everyday problems. See how many you put down, and how StackGen's Aiden takes them off your plate.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{--bg:#13110D;--ink:#F1ECE2;--soft:#B3AC9F;--dim:#7A7468;--violet:#8B5CF6;--violet-hi:#B49CFF;--panel:#1D1A15;--rule:#2E2A23;--stroke:#E8A98A;--fill:#1D1A15}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.55 Geist,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+em{font-style:normal;color:var(--violet-hi)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.logo{border:2px dashed #3A362E;color:var(--dim);font:500 12px/1 "JetBrains Mono",monospace;letter-spacing:.12em;padding:10px 14px;border-radius:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--violet);color:#fff;font:500 16px/1 Geist,sans-serif;padding:14px 22px;border-radius:999px;text-decoration:none;border:0;cursor:pointer}
+.btn:hover{background:#7C4DEB}
+.btn.ghost{background:transparent;border:1.5px solid var(--rule);color:var(--ink)}
+.btn:focus-visible,.pain:focus-visible{outline:3px solid var(--violet-hi);outline-offset:3px}
+section{padding:72px 0}
+.label{font:500 13px/1 "JetBrains Mono",monospace;letter-spacing:.14em;color:var(--dim);text-transform:uppercase;margin-bottom:18px}
+h1{font:400 clamp(44px,6.4vw,84px)/1.04 Geist,sans-serif;letter-spacing:-.035em}
+h2{font:400 clamp(32px,4vw,52px)/1.08 Geist,sans-serif;letter-spacing:-.03em;max-width:820px}
+.lede{color:var(--soft);font-size:19px;margin-top:18px;max-width:520px}
+/* game */
+.game{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start;padding-top:40px}
+.pains{display:grid;gap:12px;margin-top:36px}
+.pain{display:flex;gap:16px;align-items:flex-start;text-align:left;width:100%;background:var(--panel);border:1.5px solid var(--rule);border-radius:18px;padding:20px 22px;color:var(--ink);font:400 20px/1.35 Geist,sans-serif;cursor:pointer;transition:border-color .2s,background .2s}
+.pain:hover{border-color:#4A453B}
+.pain .box{flex:0 0 26px;height:26px;border-radius:8px;border:1.5px solid #4A453B;margin-top:1px;display:grid;place-items:center;transition:all .2s}
+.pain[aria-pressed=true]{border-color:var(--violet);background:#1D1828}
+.pain[aria-pressed=true] .box{background:var(--violet);border-color:var(--violet)}
+.pain[aria-pressed=true] .box::after{content:"";width:10px;height:6px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(-45deg) translate(1px,-1px)}
+.handbox{position:sticky;top:24px;text-align:center}
+.handbox svg{width:100%;max-width:340px;height:auto}
+.count{font:500 15px/1.4 "JetBrains Mono",monospace;letter-spacing:.06em;color:var(--soft);margin-top:12px;min-height:44px}
+.count b{color:var(--ink);font-weight:500}
+.next{margin-top:20px;opacity:.35;pointer-events:none;transition:opacity .3s}
+.next.on{opacity:1;pointer-events:auto}
+.f,.th{transition:all .5s cubic-bezier(.5,0,.2,1)}
+/* answers */
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.ans{background:var(--panel);border:1.5px solid var(--rule);border-radius:20px;padding:28px}
+.ans.hit{border-color:var(--violet)}
+.ans .q{font:500 13px/1.5 "JetBrains Mono",monospace;letter-spacing:.06em;color:var(--dim);text-transform:uppercase;margin-bottom:14px}
+.ans.hit .q{color:var(--violet-hi)}
+.ans p{font-size:19px;line-height:1.45}
+.guard{margin-top:24px;padding:22px 26px;border-left:3px solid var(--violet);color:var(--soft);font-size:18px}
+.guard b{color:var(--ink);font-weight:500}
+/* proof */
+.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:36px}
+.stat{border-top:1.5px solid var(--rule);padding-top:22px}
+.stat .n{font:400 56px/1 Geist,sans-serif;letter-spacing:-.03em;color:var(--violet-hi)}
+.stat .t{font-size:18px;margin-top:10px}
+.stat .s{font:500 12px/1.4 "JetBrains Mono",monospace;letter-spacing:.1em;color:var(--dim);text-transform:uppercase;margin-top:10px}
+.tbc{display:inline-block;margin-left:8px;padding:3px 8px;border-radius:6px;background:#3A2A12;color:#F2B661;font:500 11px/1.4 "JetBrains Mono",monospace;letter-spacing:.06em;vertical-align:middle}
+/* form */
+.cta{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.cta ul{margin-top:24px;padding:0;list-style:none;display:grid;gap:12px}
+.cta li{padding-left:28px;position:relative;color:var(--soft)}
+.cta li::before{content:"";position:absolute;left:0;top:10px;width:14px;height:2px;background:var(--violet)}
+.picked{margin-top:28px;font:500 14px/1.6 "JetBrains Mono",monospace;color:var(--soft);letter-spacing:.04em}
+.picked b{color:var(--violet-hi);font-weight:500}
+form{background:var(--panel);border:1.5px solid var(--rule);border-radius:22px;padding:30px;display:grid;gap:16px}
+label{display:grid;gap:7px;font:500 13px/1 "JetBrains Mono",monospace;letter-spacing:.08em;color:var(--soft);text-transform:uppercase}
+input,select{font:400 17px/1.3 Geist,sans-serif;color:var(--ink);background:var(--bg);border:1.5px solid var(--rule);border-radius:12px;padding:14px 14px;width:100%}
+input:focus,select:focus{outline:none;border-color:var(--violet)}
+form .btn{justify-content:center;margin-top:6px;font-size:17px;padding:17px}
+.small{font-size:13px;color:var(--dim)}
+.thanks{display:none;text-align:left}
+.thanks h3{font:400 30px/1.2 Geist,sans-serif;letter-spacing:-.02em}
+form.sent > :not(.thanks){display:none}
+form.sent .thanks{display:block}
+footer{border-top:1.5px solid var(--rule);padding:28px 0 40px;color:var(--dim);font-size:14px}
+@media (max-width:860px){
+ .game,.cta,.answers{grid-template-columns:1fr}
+ .handbox{position:static}
+ .handbox svg{max-width:200px}
+ section{padding:52px 0}
+ .pain{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style></head><body>
+<!-- Build notes for HubSpot:
+     - Replace the dashed logo with the approved StackGen logo.
+     - Every stat marked TO CONFIRM waits on StackGen. Remove the badge only once the number is confirmed.
+     - Replace <form id="demo"> with the HubSpot form; keep the hidden fields (version, fingers_down). -->
+<div class="wrap">
+<header><span class="logo">STACKGEN LOGO</span><a class="btn ghost" href="#book">Book a demo</a></header>
+
+<section class="game" aria-labelledby="h1">
+  <div>
+    <h1 id="h1">InfraOps leaders,<br>put a finger<br><em>down</em> if…</h1>
+    <div class="pains"><button class="pain" type="button" aria-pressed="false" data-i="0"><span class="box" aria-hidden="true"></span><span>The roadmap waits on infra <em>more than on code.</em></span></button><button class="pain" type="button" aria-pressed="false" data-i="1"><span class="box" aria-hidden="true"></span><span>Your most senior engineers are on work <em>a script could do.</em></span></button><button class="pain" type="button" aria-pressed="false" data-i="2"><span class="box" aria-hidden="true"></span><span>Your team runs a dozen ops tools and <em>none of them talk to each other.</em></span></button><button class="pain" type="button" aria-pressed="false" data-i="3"><span class="box" aria-hidden="true"></span><span>Half of sprint planning is <em>deciding which requests wait.</em></span></button></div>
+  </div>
+  <div class="handbox"><div id="hand"></div><div class="count" id="count" aria-live="polite"></div>
+    <a class="btn next" id="next" href="#answers">See what Aiden does with them ↓</a></div>
+</section>
+
+<section id="answers">
+  <h2>What <em>StackGen’s Aiden</em> does with each one</h2>
+  <div class="answers"><div class="ans"><div class="q">The roadmap waits on infra more than on code.</div><p>Routine infra requests become policy-checked PRs in minutes, so features stop waiting in the queue.</p></div><div class="ans"><div class="q">Your most senior engineers are on work a script could do.</div><p>Aiden handles routine requests from your approved modules, so your senior engineers get back to the roadmap.</p></div><div class="ans"><div class="q">Your team runs a dozen ops tools and none of them talk to each other.</div><p>Aiden works across the IaC, cloud and ops tools you already run. Nothing to replace, one agent between them.</p></div><div class="ans"><div class="q">Half of sprint planning is deciding which requests wait.</div><p>With routine requests handled inside your approval rules, planning goes back to what to build, not what to push back.</p></div></div>
+  <p class="guard"><b>Nothing changes without your rules.</b> Every action is checked against your policy, approved at the level you set, and logged.</p>
+</section>
+
+<section>
+  <h2>What teams running Aiden got back</h2>
+  <div class="proof"><div class="stat"><div class="n">65%</div><div class="t">less effort fixing incidents</div><div class="s">greytHR</div></div><div class="stat"><div class="n">10 min</div><div class="t">from infra request to policy-checked PR</div><div class="s">StackGen<span class="tbc">TO CONFIRM</span></div></div></div>
+</section>
+
+<section id="book" class="cta">
+  <div>
+    <h2>Lost a few fingers? <em>Let’s get them back up.</em></h2>
+    <ul><li>Where your team’s hours go today, and which come back first</li><li>Aiden turning a real infra request into a PR you approve</li><li>The approvals and audit trail your team would sign off on</li></ul>
+    <p class="picked" id="picked"></p>
+  </div>
+  <form id="demo" novalidate>
+    <label>Full name<input name="name" autocomplete="name" required></label>
+    <label>Work email<input name="email" type="email" autocomplete="email" required></label>
+    <label>Company<input name="company" autocomplete="organization" required></label>
+    <label>Role<select name="role"><option>SRE / reliability engineer</option><option>SRE manager / head of reliability</option><option>Platform, DevOps or infra engineer</option><option selected>Platform or infra manager</option><option>CTO / VP engineering</option><option>Other</option></select></label>
+    <input type="hidden" name="version" value="stackgen-finger-down-infraops-leaders">
+    <input type="hidden" name="fingers_down" id="fingers_down" value="">
+    <button class="btn" type="submit">Book my demo →</button>
+    <p class="small">30 minutes with an engineer, on your stack. No slides.</p>
+    <div class="thanks" role="status"><h3>You’re in.</h3><p class="small" style="font-size:16px;margin-top:10px">We’ll email you within one working day to pick a time.</p></div>
+  </form>
+</section>
+</div>
+<footer><div class="wrap">© StackGen</div></footer>
+<script>
+const FG={index:[98,46,96],middle:[150,46,70],ring:[202,46,92],pinky:[254,44,128]};
+const ORDER=['thumb','pinky','ring','middle'];
+function hand(down){
+  let s='';
+  for(const n of ['index','middle','ring','pinky']){
+    let [x,w,top]=FG[n]; if(down.includes(n)) top=196;
+    s+=`<rect class="f" x="${x}" y="${top}" width="${w}" height="${260-top}" rx="${w/2}" fill="var(--fill)" stroke="var(--stroke)" stroke-width="3.5"/>`;
+  }
+  s+= down.includes('thumb')
+    ? '<rect class="th" x="72" y="250" width="44" height="90" rx="22" transform="rotate(-62 94 330)" fill="var(--fill)" stroke="var(--stroke)" stroke-width="3.5"/>'
+    : '<rect class="th" x="72" y="246" width="44" height="130" rx="22" transform="rotate(-32 94 372)" fill="var(--fill)" stroke="var(--stroke)" stroke-width="3.5"/>';
+  s+='<rect x="92" y="226" width="214" height="200" rx="44" fill="var(--fill)" stroke="var(--stroke)" stroke-width="3.5"/>';
+  return `<svg viewBox="0 40 330 400" role="img" aria-label="Hand with ${5-down.length} fingers up">${s}</svg>`;
+}
+const pains=[...document.querySelectorAll('.pain')], box=document.getElementById('hand'), count=document.getElementById('count'),
+      next=document.getElementById('next'), picked=document.getElementById('picked'), fld=document.getElementById('fingers_down');
+function update(){
+  const on=pains.filter(p=>p.getAttribute('aria-pressed')==='true');
+  box.innerHTML=hand(ORDER.slice(0,on.length));
+  const up=5-on.length;
+  count.innerHTML = on.length===0 ? 'FINGERS UP · <b>5</b><br>Tap each one that’s true. Nobody’s watching.'
+    : on.length===4 ? 'FINGERS UP · <b>1</b><br>That’s the one holding everything together.'
+    : `FINGERS UP · <b>${up}</b><br>${on.length} down. Keep going.`;
+  next.classList.toggle('on', on.length>0);
+  document.querySelectorAll('.ans').forEach((a,i)=>a.classList.toggle('hit', pains[i].getAttribute('aria-pressed')==='true'));
+  const idx=on.map(p=>+p.dataset.i+1);
+  fld.value=idx.join(',');
+  picked.innerHTML = on.length ? `You put down <b>${on.length}</b> finger${on.length>1?'s':''}. We’ll start the demo with ${on.length>1?'those':'that one'}.` : '';
+}
+pains.forEach(p=>p.addEventListener('click',()=>{p.setAttribute('aria-pressed', p.getAttribute('aria-pressed')==='true'?'false':'true'); update();}));
+update();
+// Prototype only: replace this form with the HubSpot form embed. Keep the hidden fields.
+document.getElementById('demo').addEventListener('submit',e=>{e.preventDefault(); e.target.classList.add('sent');});
+</script>
+</body></html>
